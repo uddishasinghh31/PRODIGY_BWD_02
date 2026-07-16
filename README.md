@@ -249,7 +249,7 @@ Displays the complete Maven project structure including documentation, resources
 Successful retrieval of users through the REST API.
 
 <p align="center">
-<img src="docs/screenshots/get_fromDatabase.png" width="200"/>
+<img src="docs/screenshots/get_fromDatabase.png" width="500"/>
 </p>
 
 ---
@@ -259,7 +259,7 @@ Successful retrieval of users through the REST API.
 Persistent records stored inside the MySQL database after API requests.
 
 <p align="center">
-<img src="docs/screenshots/mysql_database.png" width="200"/>
+<img src="docs/screenshots/mysql_database.png" width="500"/>
 </p>
 
 ---
