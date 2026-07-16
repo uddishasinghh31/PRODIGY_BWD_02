@@ -1,5 +1,7 @@
 package com.example.basic_rest_api.exception;
+
 import java.util.UUID;
+
 public class UserNotFoundException extends RuntimeException
 {
     public UserNotFoundException(UUID id)
@@ -7,4 +9,3 @@ public class UserNotFoundException extends RuntimeException
         super("User not found with id: " + id);
     }
 }
-

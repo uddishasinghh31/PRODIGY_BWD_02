@@ -1,17 +1,38 @@
 package com.example.basic_rest_api.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
+
 import java.util.UUID;
-public class User
-{
+
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @UuidGenerator
+    @JdbcTypeCode(SqlTypes.BINARY)
+    @Column(nullable = false, updatable = false)
     private UUID id;
+
+    @Column(nullable = false, length = 100)
     private String name;
+
+    @Column(nullable = false, length = 255, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private Integer age;
 
     public User() {
     }
 
-    public User(UUID id, String name, String email, Integer age) {
-        this.id = id;
+    public User(String name, String email, Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -19,10 +40,6 @@ public class User
 
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getName() {

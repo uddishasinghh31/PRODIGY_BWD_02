@@ -19,7 +19,14 @@ public class GlobalExceptionHandler
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
-
+    @ExceptionHandler(org.springframework.dao.DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, String>> handleDuplicateEmail(
+            org.springframework.dao.DataIntegrityViolationException exception
+    ) {
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "Email already in use");
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(
             MethodArgumentNotValidException exception

@@ -1,60 +1,54 @@
 package com.example.basic_rest_api.service;
+
 import com.example.basic_rest_api.dto.UserRequest;
 import com.example.basic_rest_api.exception.UserNotFoundException;
 import com.example.basic_rest_api.model.User;
+import com.example.basic_rest_api.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class UserService
-{
-    // In-memory storage: UUID is the key, User is the value.
-    private final Map<UUID, User> users = new HashMap<>();
+public class UserService {
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User createUser(UserRequest request) {
         User user = new User(
-                UUID.randomUUID(),
-                request.getName(),
-                request.getEmail(),
+                request.getName().trim(),
+                request.getEmail().trim().toLowerCase(),
                 request.getAge()
         );
 
-        users.put(user.getId(), user);
-        return user;
+        return userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
-        return new ArrayList<>(users.values());
+        return userRepository.findAll();
     }
 
     public User getUserById(UUID id) {
-        User user = users.get(id);
-
-        if (user == null) {
-            throw new UserNotFoundException(id);
-        }
-
-        return user;
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     public User updateUser(UUID id, UserRequest request) {
-        User existingUser = getUserById(id);
+        User user = getUserById(id);
 
-        existingUser.setName(request.getName());
-        existingUser.setEmail(request.getEmail());
-        existingUser.setAge(request.getAge());
+        user.setName(request.getName().trim());
+        user.setEmail(request.getEmail().trim().toLowerCase());
+        user.setAge(request.getAge());
 
-        users.put(id, existingUser);
-        return existingUser;
+        return userRepository.save(user);
     }
 
     public void deleteUser(UUID id) {
-        getUserById(id);
-        users.remove(id);
+        User user = getUserById(id);
+        userRepository.delete(user);
     }
 }
