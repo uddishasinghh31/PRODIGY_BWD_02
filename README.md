@@ -229,7 +229,7 @@ Flyway will automatically create the required database tables on application sta
 Shows the layered package structure used in the application.
 
 <p align="center">
-<img src="docs/screenshots/git_structure.png" width="900"/>
+<img src="docs/screenshots/git_structure.png" width="200"/>
 </p>
 
 ---
@@ -239,7 +239,7 @@ Shows the layered package structure used in the application.
 Displays the complete Maven project structure including documentation, resources, and migration scripts.
 
 <p align="center">
-<img src="docs/screenshots/complete-project-structure.png" width="900"/>
+<img src="docs/screenshots/complete-project-structure.png" width="200"/>
 </p>
 
 ---
@@ -249,7 +249,7 @@ Displays the complete Maven project structure including documentation, resources
 Successful retrieval of users through the REST API.
 
 <p align="center">
-<img src="docs/screenshots/get_fromDatabase.png" width="900"/>
+<img src="docs/screenshots/get_fromDatabase.png" width="200"/>
 </p>
 
 ---
@@ -259,7 +259,7 @@ Successful retrieval of users through the REST API.
 Persistent records stored inside the MySQL database after API requests.
 
 <p align="center">
-<img src="docs/screenshots/mysql_database.png" width="900"/>
+<img src="docs/screenshots/mysql_database.png" width="200"/>
 </p>
 
 ---
