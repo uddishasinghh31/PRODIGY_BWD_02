@@ -249,9 +249,8 @@ Successful retrieval of users through the REST API.
 Persistent records stored inside the MySQL database after API requests.
 
 <p align="center">
-<img src="docs/screenshots/mysql_database.png" width="500"/>
+<img width="500"  alt="ChatGPT Image Jul 23, 2026, 10_06_09 PM" src="https://github.com/user-attachments/assets/f60808c6-5dca-496e-b806-88f387a3f992" />
 </p>
-
 ---
 
 # 🧪 Sample JSON Response
