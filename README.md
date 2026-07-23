@@ -234,16 +234,6 @@ Shows the layered package structure used in the application.
 
 ---
 
-## 📂 Complete Project Directory
-
-Displays the complete Maven project structure including documentation, resources, and migration scripts.
-
-<p align="center">
-<img src="docs/screenshots/complete-project-structure.png" width="200"/>
-</p>
-
----
-
 ## 🌐 API Testing using Postman
 
 Successful retrieval of users through the REST API.
